@@ -1,0 +1,90 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+
+			<img src="/assets/img/burger.png" alt="burger" class="img-responsive center-block">
+
+
+		</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	
+	
+	
+	
+	<div class="row">
+		<div class="col-md-1"></div>
+		
+		
+		<div class="col-md-4">
+		
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2>Burgers to be Eaten</h2>
+		</div>
+		<div class="panel-body">
+
+
+			<ul style="list-style: none;">
+				{{#each burgers}} {{#unless this.devoured}}
+				<li>
+					<p>{{this.id}}. {{this.burgername}}</p>
+				</li>
+
+				<form action="/{{this.id}}?_method=PUT" method="POST">
+					<input type="hidden" name="devoured" value="true">
+					<button type="submit">Devour</button>
+				</form>
+				{{/unless}} {{/each}}
+			</ul>
+		</div>
+	</div>
+		</div>
+
+		
+		
+		<div class="col-md-2">
+
+	<h1>Make a burger!</h1>
+
+	<form class="create-update-form" action="/" method="POST">
+
+		<div class="form-group">
+			<label>Enter new burger name here</label>
+			<input type="text" name="burgername">
+
+			<button type="submit">Make Burger</button>
+		</div>
+
+	</form>
+			
+		</div>
+		
+		<div class="col-md-4">
+
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2>Burgers Devoured</h2>
+		</div>
+		<div class="panel-body">
+
+
+			<ul style="list-style: none;">
+				{{#each burgers}} {{#if this.devoured}}
+				<li>
+					<p>{{this.id}}. {{this.burgername}}</p>
+				</li>
+				{{/if}} {{/each}}
+			</ul>
+
+		</div>
+	</div>
+			
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+</div>
