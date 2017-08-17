@@ -38,19 +38,39 @@ router.post("/", function(req, res) {
 	});
 });
 
-
+////////////////////////////////////////////////////////////////////////////////////////////update this,  not working
 router.put("/:id", function(req, res) {
-	var updateList = {
+	var updateBurgers = {
 		devoured: true,
 	}
-	db.Burgers.update(updatePost,{
+	db.Burgers.update(updateBurgers,{
 		where:{
 			id: req.body.id
 		}
-	}).then(function (dbUpdate){
-		res.json(dbUpdate);
+	}).then(function (Burgers){
+		res.json(Burgers);
 	})
 });
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////db.Todo.update({
+//text: req.body.text,
+//	complete: req.body.complete
+//}, {
+//	where: {
+//		id: req.body.id
+//	}
+//}).then(function(dbTodo) {
+//	res.json(dbTodo);
+//})
+
+
+
 
 
 // Export routes for server.js to use.
