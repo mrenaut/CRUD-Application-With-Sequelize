@@ -29,12 +29,12 @@
 
 
 			<ul style="list-style: none;">
-				{{#each burgers}} {{#unless this.devoured}}
+				{{#each burgers}} {{#unless devoured}}
 				<li>
-					<p>{{this.id}}. {{this.burgername}}</p>
+					<p>{{id}}. {{burgername}}</p>
 				</li>
 
-				<form action="/{{this.id}}?_method=PUT" method="POST">
+				<form action="/{{id}}?_method=PUT" method="POST">
 					<input type="hidden" name="devoured" value="true">
 					<button type="submit">Devour</button>
 				</form>
@@ -74,9 +74,9 @@
 
 
 			<ul style="list-style: none;">
-				{{#each burgers}} {{#if this.devoured}}
+				{{#each burgers}} {{#if devoured}}
 				<li>
-					<p>{{this.id}}. {{this.burgername}}</p>
+					<p>{{id}}. {{burgername}}</p>
 				</li>
 				{{/if}} {{/each}}
 			</ul>

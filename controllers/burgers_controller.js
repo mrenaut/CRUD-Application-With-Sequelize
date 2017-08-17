@@ -13,45 +13,37 @@ var db = require("../models");
 // Create all our routes and set up logic within those routes where required.
 
 router.get("/", function(req, res) {
-	db.burgers.findAll({})
-		.then(function(burgers_db){
-		res.render('index', burgers_db)
+	db.Burgers.findAll({})
+		.then(function(Burgers){
+		res.render('index', {burgers: Burgers})
 
 	})
 	
 });
 
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////need to update this section
 router.post("/", function (req, res) {
-	db.burgers.create({
+	db.Burgers.create({
 		burgername: req.body.burgername
 	}).then(function(data){
-		res.json(data);
 		res.redirect("/");
 	});	
 });
 
 router.post("/", function(req, res) {
-	db.burgers.create({item_name: req.body.item_name})
-		.then(function(newItem){
-		console.log(newBurger);
+	db.Burgers.create({burgername: req.body.item_name})
+		.then(function(newBurgers){
+		console.log(newBurgers);
 		res.redirect('/');
 	});
 });
 
 
-
-
-
-
-
 router.put("/:id", function(req, res) {
 	var updateList = {
-		got: true,
+		devoured: true,
 	}
-	db.burgers.update(updatePost,{
+	db.Burgers.update(updatePost,{
 		where:{
 			id: req.body.id
 		}
