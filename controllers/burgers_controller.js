@@ -10,18 +10,16 @@ var db = require("../models");
 
 
 
-// Create all our routes and set up logic within those routes where required.
+// puts all burgers onto the page when the homepage loads
 
 router.get("/", function(req, res) {
 	db.Burgers.findAll({})
 		.then(function(Burgers){
 		res.render('index', {burgers: Burgers})
-
 	})
-	
 });
 
-
+// puts all burgers onto the page when the homepage loads
 router.post("/", function (req, res) {
 	db.Burgers.create({
 		burgername: req.body.burgername
@@ -30,44 +28,16 @@ router.post("/", function (req, res) {
 	});	
 });
 
-router.post("/", function(req, res) {
-	db.Burgers.create({burgername: req.body.item_name})
-		.then(function(newBurgers){
-		console.log(newBurgers);
-		res.redirect('/');
+
+router.put('/:id',(req, res)=> {
+	db.Burgers.update({ devoured: req.body.devoured }, {
+		fields: ['devoured'],
+		where: { id: req.params.id }
+	}).then(data => {
+		res.redirect('/')
 	});
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////update this,  not working
-router.put("/:id", function(req, res) {
-	var updateBurgers = {
-		devoured: true,
-	}
-	db.Burgers.update(updateBurgers,{
-		where:{
-			id: req.body.id
-		}
-	}).then(function (Burgers){
-		res.json(Burgers);
-	})
-});
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////db.Todo.update({
-//text: req.body.text,
-//	complete: req.body.complete
-//}, {
-//	where: {
-//		id: req.body.id
-//	}
-//}).then(function(dbTodo) {
-//	res.json(dbTodo);
-//})
 
 
 

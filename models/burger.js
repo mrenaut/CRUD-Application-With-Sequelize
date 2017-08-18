@@ -2,7 +2,6 @@
 //module.exports = list;*/
 
 
-////////////////////////////////////////////////////////////////////not really sure what i should be doing with this area.
 
 //sets up table in mySQL with burgers and devoured as columns with validation in each
 module.exports = function (sequelize, DataTypes) {
