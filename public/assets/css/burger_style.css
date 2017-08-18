@@ -1,7 +1,14 @@
 body {
 	background-color: red;
 	
-
-
 }
 
+#burgerpic {
+	width: 400px;
+	height: auto;
+	vertical-align: middle;
+}
+
+#newBurgerForm {
+	text-align: center;
+}

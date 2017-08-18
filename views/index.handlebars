@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
-
-			<img src="/assets/img/burger.png" alt="burger" class="img-responsive center-block">
-
+			<div class="container" id="picContainer">
+			<img src="/assets/img/burger.png" alt="burger" class="img-responsive center-block" id="burgerpic">
+			</div>	
 
 		</div>
 	</div>
@@ -48,9 +48,9 @@
 		
 		<div class="col-md-2">
 
-	<h1>Make a burger!</h1>
-
-	<form class="create-update-form" action="/" method="POST">
+	
+	<form class="create-update-form" action="/" method="POST" id="newBurgerForm">
+		<h1>Make a burger!</h1>
 
 		<div class="form-group">
 			<label>Enter new burger name here</label>
