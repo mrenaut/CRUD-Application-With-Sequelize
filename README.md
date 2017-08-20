@@ -19,7 +19,7 @@ User is able to create database entries from their own input and alter the data,
 SCREENSHOT FROM APP
 
 
-![](public/assets/images/screenshot1.JPG)
+![](/public/assets/img/screenshot1.JPG)
 
 
 
